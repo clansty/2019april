@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>成绩查询</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        div.hidden{
+            display:none;
+        }
+        div.blank{
+            min-height: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <h1>江苏省2019年学业水平测试成绩查询</h1>
+    <div id="april">
+        
+        <p>姓名: <input type="text" id="uName"></p>
+        <p>考场号: <input type="text" id="kc"></p>
+        <p>座位号: <input type="text"></p>
+        <p>选测科目: 
+            <input type="checkbox" id="phy">物理 
+            <input type="checkbox" id="his">历史 
+            <input type="checkbox" id="che">化学 
+            <input type="checkbox" id="bio">生物 
+            <input type="checkbox" id="zz">政治 
+            <input type="checkbox" id="lige">地理 
+        </p>
+        <button onclick="fool()">查询</button>
+        <button onclick="location.reload()">重置</button>
+    </div>
+    <div id="fool" class="hidden">
+        <table border="1" cellspacing="0" cellpadding="0">
+            <tr height=30>
+                <th width="60">姓名</th>
+                <th width="60">物理</th>
+                <th width="60">历史</th>
+                <th width="60">化学</th>
+                <th width="60">生物</th>
+                <th width="60">政治</th>
+                <th width="60">地理</th>
+                <th width="70">信息技术</th>
+            </tr>
+            <tr height=25>
+                <td><center id="rName"></center></td>
+                <td><center id="rphy"></center></td>
+                <td><center id="rhis"></center></td>
+                <td><center id="rche"></center></td>
+                <td><center id="rbio"></center></td>
+                <td><center id="rzz"></center></td>
+                <td><center id="rlige"></center></td>
+                <td><center>合格</center></td>
+                </tr>
+        </table>
+        <p>注: <br>此成绩从应届高考之年起算，三年有效，请妥善保管<br>Q：缺考；W：违纪作弊</p>
+        <p>江苏省教育考试院</p>
+        <div class="blank"></div>
+        <p>此页面为2019年的愚人节玩笑，仅供娱乐！<br>本页面不会收集和保存任何输入的信息</p>
+    </div>
+    <script>
+        function fool() {
+            var uName=document.getElementById("uName").value;
+            if(uName=="")
+                return;
+            var max=61;
+            var min=50;
+
+            if(document.getElementById("kc").value=="愚人节快乐"){
+                max=97;
+                min=84;
+            }
+            document.getElementById("rName").innerHTML=uName;
+            if(document.getElementById("che").checked)
+                document.getElementById("rche").innerHTML=Math.floor(Math.random() * (max - min) + min);
+            if(document.getElementById("bio").checked)
+                document.getElementById("rbio").innerHTML=Math.floor(Math.random() * (max - min) + min);
+            if(document.getElementById("his").checked)
+                document.getElementById("rhis").innerHTML=Math.floor(Math.random() * (max - min) + min);
+            if(document.getElementById("zz").checked)
+                document.getElementById("rzz").innerHTML=Math.floor(Math.random() * (max - min) + min);
+            if(document.getElementById("lige").checked)
+                document.getElementById("rlige").innerHTML=Math.floor(Math.random() * (max - min) + min);
+            if(document.getElementById("phy").checked)
+                document.getElementById("rphy").innerHTML=Math.floor(Math.random() * (max - min) + min);
+            document.getElementById("fool").className="";
+            document.getElementById("april").className="hidden";
+        }
+    </script>
+</body>
+</html>
